@@ -1,5 +1,5 @@
 {
-    "name": "framer-motion-primitives-test",
+    "name": "test-motion-primitives",
     "private": true,
     "version": "0.0.0",
     "type": "module",
@@ -21,6 +21,7 @@
     "scripts": {
         "dev": "vite",
         "preview": "vite preview",
-        "build": "tsc -b && vite build"
+        "build": "tsc -b && vite build",
+        "deploy": "pnpm run build && npx gh-pages -d dist"
     }
 }
