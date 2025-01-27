@@ -6,7 +6,7 @@ import {
 } from "@/components/motion-ui/carousel";
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { useState } from 'react';
-import Link from 'next/link';
+import { Link } from "@/ui";
 
 const FEATURES = [
   {

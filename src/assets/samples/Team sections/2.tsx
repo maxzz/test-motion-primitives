@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from 'lucide-react';
 import {AnimatedBackground} from '@/components/motion-ui/animated-background';
-import Link from 'next/link';
+import { Link } from "@/ui";
 
 const LINKS = [
   {

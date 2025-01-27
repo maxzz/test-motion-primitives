@@ -1,7 +1,7 @@
 'use client';
 import React, { ReactNode } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import Link from 'next/link';
+import { Link } from "@/ui";
 import { useState } from 'react';
 
 type NavItem = {

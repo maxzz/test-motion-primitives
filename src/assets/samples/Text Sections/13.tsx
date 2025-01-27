@@ -17,7 +17,7 @@ const HighlightedText = ({ children }: { children: React.ReactNode }) => {
         },
       }}
       transition={{ duration: 0.5 }}
-      className='inline-block bg-[linear-gradient(90deg,theme(colors.black)_50%,transparent_50%)] bg-[length:200%_100%] bg-clip-text text-transparent dark:bg-[linear-gradient(90deg,theme(colors.white)_50%,transparent_50%)]'
+      //tm: className='inline-block bg-[linear-gradient(90deg,theme(colors.black)_50%,transparent_50%)] bg-[length:200%_100%] bg-clip-text text-transparent dark:bg-[linear-gradient(90deg,theme(colors.white)_50%,transparent_50%)]'
     >
       {children}
     </InView>

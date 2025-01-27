@@ -1,6 +1,6 @@
 'use client';
 import { ArrowRightIcon } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from "@/ui";
 import { motion } from 'motion/react';
 import { useState } from 'react';
 
