@@ -30,7 +30,7 @@ function collectSamples(folder: string) {
         if (st.isDirectory()) {
             collectSamples(path.join(folder, fname));
             continue;
-        } else if (st.isFile() && fname.endsWith(".jsx")) {
+        } else if (st.isFile() && fname.match(/\.[jt]sx?$/)) {
             const content = fs.readFileSync(fullname, "utf-8");
 
             const exportFunction = content.match(/export\s+function\s+(\w+)/);
