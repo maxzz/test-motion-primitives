@@ -59,25 +59,36 @@ function main() {
 
     const flatArray = [...res.values()].flat();
 
-    [...res.entries()].map(([key, value]) => {
+    const fileCnt: string[] = [];
+
+    [...res.entries()].forEach(([key, value]) => {
         console.log('%c// %s', 'color:green', lastFname(key));
+        
+        fileCnt.push(`// lastFname(key)`);
 
         // value
         //     .sort((a, b) => a.name.localeCompare(b.name))
         //     .map((item) => {
         //         console.log('import * from "%c%s/%s";', 'color:orange', toUnix(item.dir), item.name);
         //     });
-        value
+        const items = value
             .sort((a, b) => Intl.Collator(undefined, { numeric: true }).compare(a.name, b.name))
             .map((item) => {
-                console.log(`import { ${item.content} } from %c"%s/%s";`, 'color:orange', toUnix(item.dir).replace(replaceOutFolder, '.'), item.name);
+                //console.log(`import { ${item.content} } from %c"%s/%s";`, 'color:orange', toUnix(item.dir).replace(replaceOutFolder, '.'), item.name);
+
+                const str = `export { ${item.content} } from "${toUnix(item.dir).replace(replaceOutFolder, '.')}/${item.name}";`;
+                return str;
             });
+
+        fileCnt.push(items.join('\n'));
     });
 
-    const textAllAsJson = `export default ${JSON.stringify(flatArray, null, 2)}`;
+    fs.writeFileSync(`${outFolder}/samples/all-samples-2.ts`, fileCnt.join('\n'));
 
-    // fs.writeFileSync(`${outFolder}/all-samples.js`, textAllAsJson);
-    // fs.writeFileSync(`${outFolder}/all-samples.js`, JSON.stringify([...res], null, 2));
+    const textAllAsJson = `${JSON.stringify(flatArray, null, 2)}`;
+
+    fs.writeFileSync(`${outFolder}/all-samples-2-flat.json`, textAllAsJson);
+    fs.writeFileSync(`${outFolder}/all-samples-1.json`, JSON.stringify([...res], null, 2));
 }
 
 console.log('%crootFolder %s', 'color:orange', inFolder);
