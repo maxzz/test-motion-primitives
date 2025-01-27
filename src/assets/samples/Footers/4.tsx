@@ -1,13 +1,13 @@
-import { InfiniteSlider } from '../motion-ui/infinite-slider';
-import GitHubIcon from '../website/icons/github';
-import XIcon from '../website/icons/x';
+import { InfiniteSlider } from "@/components/motion-ui/infinite-slider";
+import GitHubIcon from '@/components/motion-ui-demo-icons/github';
+import XIcon from '@/components/motion-ui-demo-icons/x';
 
 export function Footer4() {
   return (
     <footer>
       <div className='mx-auto flex max-w-7xl flex-col justify-center px-6 py-12 md:flex-row md:justify-between md:px-8'>
         <p className='text-sm text-zinc-500'>
-          © {new Date().getFullYear()} Motion Primitives, Inc. All rights
+          ï¿½ {new Date().getFullYear()} Motion Primitives, Inc. All rights
           reserved.
         </p>
         <div className='order-first mb-4 flex items-center gap-x-6 md:order-none md:mb-0'>

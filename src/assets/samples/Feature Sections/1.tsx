@@ -7,7 +7,7 @@ import {
   AccordionContent,
 } from '@/components/motion-ui/accordion';
 import { ChevronUp } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from "@/utils";
 
 // images from https://www.cosmos.so/e/1861677771
 const FEATURES = [

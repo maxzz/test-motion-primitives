@@ -1,6 +1,6 @@
 'use client';
-import { cn } from '@/lib/utils';
-import { TransitionPanel } from '@/components/motion-ui/transition-panel';
+import { cn } from "@/utils";
+import { TransitionPanel } from "@/components/motion-ui/transition-panel";
 import { useState } from 'react';
 
 const FEATURES = [

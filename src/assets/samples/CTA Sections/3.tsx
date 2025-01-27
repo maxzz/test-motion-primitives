@@ -1,6 +1,6 @@
 'use client';
 import { ArrowRightIcon } from 'lucide-react';
-import { AnimatedNumber } from '@/components/motion-ui/animated-number';
+import { AnimatedNumber } from "@/components/motion-ui/animated-number";
 import { useInView } from 'motion/react';
 import { useRef, useState } from 'react';
 

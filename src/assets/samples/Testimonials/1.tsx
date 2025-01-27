@@ -1,5 +1,5 @@
 import { InfiniteSlider } from '@/components/motion-ui/infinite-slider';
-import { cn } from '@/lib/utils';
+import { cn } from "@/utils";
 
 const CARDS = [
   {

@@ -3,9 +3,9 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from '@/components/motion-ui/carousel';
+} from "@/components/motion-ui/carousel";
 import { useState } from 'react';
-import AnimatedBackground from '@/components/motion-ui/animated-background';
+import { AnimatedBackground } from "@/components/motion-ui/animated-background";
 
 const FEATURES = [
   {

@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import AnimatedBackground from '@/components/motion-ui/animated-background';
+import {AnimatedBackground} from "@/components/motion-ui/animated-background";
 
 // images are from https://www.cosmos.so/ibelick/nocturne
 function FeatureImg({ src, alt }: { src: string; alt: string }) {

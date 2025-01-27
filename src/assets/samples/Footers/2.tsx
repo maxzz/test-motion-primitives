@@ -1,7 +1,7 @@
 'use client';
-import { TextScramble } from '../motion-ui/text-scramble';
-import GitHubIcon from '../website/icons/github';
-import XIcon from '../website/icons/x';
+import { TextScramble } from "@/components/motion-ui/text-scramble";
+import GitHubIcon from '@/components/motion-ui-demo-icons/github';
+import XIcon from '@/components/motion-ui-demo-icons/x';
 import { useState } from 'react';
 
 export function Footer2() {
@@ -23,7 +23,7 @@ export function Footer2() {
           trigger={trigger}
           onScrambleComplete={handleScrambleComplete}
         >
-          {`© ${new Date().getFullYear()} Motion Primitives, Inc. All rights
+          {`ï¿½ ${new Date().getFullYear()} Motion Primitives, Inc. All rights
           reserved.`}
         </TextScramble>
         <div className='order-first mb-4 flex items-center gap-x-6 md:order-none md:mb-0'>

@@ -1,4 +1,4 @@
-import { TextLoop } from '@/components/motion-ui/text-loop';
+import { TextLoop } from "@/components/motion-ui/text-loop";
 
 export function Heading1() {
   const words = ['components', 'templates', 'layouts', 'designs'];

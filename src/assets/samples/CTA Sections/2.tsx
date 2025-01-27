@@ -1,6 +1,6 @@
 'use client';
 import { ArrowRight } from 'lucide-react';
-import { TextEffect } from '../motion-ui/text-effect';
+import { TextEffect } from "@/components/motion-ui/text-effect";
 import { useRef } from 'react';
 import { useInView } from 'motion/react';
 

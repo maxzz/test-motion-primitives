@@ -3,7 +3,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from '@/components/motion-ui/carousel';
+} from "@/components/motion-ui/carousel";
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';

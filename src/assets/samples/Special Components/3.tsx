@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import { GlowEffect } from '@/components/motion-ui/glow-effect';
 import { TextLoop } from '@/components/motion-ui/text-loop';
 import { SearchIcon } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn } from "@/utils";
 
 export function BackgroundGlowInput() {
   const [search, setSearch] = useState('');

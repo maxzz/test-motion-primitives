@@ -63,8 +63,8 @@ function main() {
 
     [...res.entries()].forEach(([key, value]) => {
         console.log('%c// %s', 'color:green', lastFname(key));
-        
-        fileCnt.push(`// lastFname(key)`);
+
+        fileCnt.push(`// ${lastFname(key)}`);
 
         // value
         //     .sort((a, b) => a.name.localeCompare(b.name))
@@ -82,6 +82,15 @@ function main() {
 
         fileCnt.push(items.join('\n'));
     });
+
+    const names = fileCnt.map((item) => {
+        const name = item.match(/export\s+\{([^}]+)\}\s+from/)?.[1];
+        if (name) {
+            console.log('%c// %s', 'color:green', name);
+            return name;
+        }
+    }).filter((item) => item);
+    console.log('%c// names', 'color:green', JSON.stringify(names, null, 2));
 
     fs.writeFileSync(`${outFolder}/samples/all-samples-2.ts`, fileCnt.join('\n'));
 

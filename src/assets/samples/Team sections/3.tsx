@@ -6,7 +6,7 @@ import {
   useMotionValue,
   useSpring,
 } from 'motion/react';
-import { cn } from '@/lib/utils';
+import { cn } from "@/utils";
 
 const SOCIAL_PROFILES = [
   {

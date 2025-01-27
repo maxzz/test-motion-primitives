@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { DiscordRound, GithubRound, LinkedinRound, RedditRound } from './icons';
-import { cn } from '@/lib/utils';
+import { cn } from "@/utils";
 
 const ICONS = [
   {

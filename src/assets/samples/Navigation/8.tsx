@@ -1,5 +1,5 @@
 'use client';
-import { cn } from '@/lib/utils';
+import { cn } from "@/utils";
 import { useScroll } from 'motion/react';
 import { useRef, useState } from 'react';
 

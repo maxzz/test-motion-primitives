@@ -1,6 +1,6 @@
 'use client';
 import { ArrowRight } from 'lucide-react';
-import { Tilt } from '@/components/motion-ui/tilt';
+import { Tilt } from "@/components/motion-ui/tilt";
 import { useTheme } from 'next-themes';
 
 export function Hero3() {

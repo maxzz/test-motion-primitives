@@ -3,8 +3,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from '@/components/motion-ui/carousel';
-import { cn } from '@/lib/utils';
+} from "@/components/motion-ui/carousel";
+import { cn } from "@/utils";
 import { useState } from 'react';
 
 const FEATURES = [

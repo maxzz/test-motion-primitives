@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from "@/utils";
 
 // images from https://www.cosmos.so/e/1861677771
 

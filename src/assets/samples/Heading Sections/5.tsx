@@ -1,5 +1,5 @@
 'use client';
-import { TextEffect } from '../motion-ui/text-effect';
+import { TextEffect } from "@/components/motion-ui/text-effect";
 
 export function Heading5() {
   return (
