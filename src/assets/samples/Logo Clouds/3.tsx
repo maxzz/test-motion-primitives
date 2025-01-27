@@ -2,14 +2,16 @@
 
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { A24 } from './icons/a24';
-import { AppleMusic } from './icons/apple-music';
-import { OpenAI } from './icons/openai';
-import { Pixar } from './icons/pixar';
-import { Prada } from './icons/prada';
-import { Salomon } from './icons/salomon';
-import { Sony } from './icons/sony';
-import { Strava } from './icons/strava';
+
+import { AppleMusic, A24, Pixar, Prada, Salomon, OpenAI, Sony, Strava } from '@/components/motion-ui-demo-icons/2';
+// import { A24 } from './icons/a24';
+// import { AppleMusic } from './icons/apple-music';
+// import { OpenAI } from './icons/openai';
+// import { Pixar } from './icons/pixar';
+// import { Prada } from './icons/prada';
+// import { Salomon } from './icons/salomon';
+// import { Sony } from './icons/sony';
+// import { Strava } from './icons/strava';
 
 const LOGOS = [
   { Component: AppleMusic, name: 'AppleMusic' },
