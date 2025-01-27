@@ -5,7 +5,7 @@ import { useSnapshot } from "valtio";
 export function Footer() {
     // const isDark = useSnapshot(appSettings).theme === "dark";
     return (
-        <footer className="p-4 bg-muted/30 border-foreground/10 border-t flex items-center justify-between">
+        <footer className="px-4 py-2 bg-muted/30 border-foreground/10 border-t flex items-center justify-between">
             <h1 className="">Footer</h1>
 
             {/* <Button
