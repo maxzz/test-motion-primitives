@@ -7,6 +7,7 @@ import { getFilenameAndExt, lastFname, pathWithoutFilename, toUnix } from "../sr
 // const rootFolder = path.resolve('./src/assets/samples');
 const inFolder = './src/assets/samples';
 const outFolder = './src/assets';
+const replaceOutFolder = 'src/assets/samples';
 
 type FileItem = {
     dir: string;
@@ -58,9 +59,25 @@ function main() {
 
     const flatArray = [...res.values()].flat();
 
+    [...res.entries()].map(([key, value]) => {
+        console.log('%c// %s', 'color:green', lastFname(key));
+
+        // value
+        //     .sort((a, b) => a.name.localeCompare(b.name))
+        //     .map((item) => {
+        //         console.log('import * from "%c%s/%s";', 'color:orange', toUnix(item.dir), item.name);
+        //     });
+        value
+            .sort((a, b) => Intl.Collator(undefined, { numeric: true }).compare(a.name, b.name))
+            .map((item) => {
+                console.log(`import { ${item.content} } from %c"%s/%s";`, 'color:orange', toUnix(item.dir).replace(replaceOutFolder, '.'), item.name);
+            });
+    });
+
     const textAllAsJson = `export default ${JSON.stringify(flatArray, null, 2)}`;
 
-    fs.writeFileSync(`${outFolder}/all-samples.js`, textAllAsJson);
+    // fs.writeFileSync(`${outFolder}/all-samples.js`, textAllAsJson);
+    // fs.writeFileSync(`${outFolder}/all-samples.js`, JSON.stringify([...res], null, 2));
 }
 
 console.log('%crootFolder %s', 'color:orange', inFolder);
