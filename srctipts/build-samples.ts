@@ -87,8 +87,8 @@ function main() {
 
     const textAllAsJson = `${JSON.stringify(flatArray, null, 2)}`;
 
-    fs.writeFileSync(`${outFolder}/all-samples-2-flat.json`, textAllAsJson);
-    fs.writeFileSync(`${outFolder}/all-samples-1.json`, JSON.stringify([...res], null, 2));
+    fs.writeFileSync(`${outFolder}/samples/all-samples-2-flat.json`, textAllAsJson);
+    fs.writeFileSync(`${outFolder}/samples/all-samples-1.json`, JSON.stringify([...res], null, 2));
 }
 
 console.log('%crootFolder %s', 'color:orange', inFolder);
