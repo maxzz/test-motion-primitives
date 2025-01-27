@@ -1,6 +1,6 @@
 'use client';
 
-import AnimatedBackground from '@/components/motion-ui/animated-background';
+import {AnimatedBackground} from '@/components/motion-ui/animated-background';
 import { cn } from "@/utils";
 import { motion } from 'motion/react';
 import { useRef, useState, useEffect } from 'react';

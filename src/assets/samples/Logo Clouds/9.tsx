@@ -1,9 +1,10 @@
-import { AppleMusic } from './icons/apple-music';
-import { A24 } from './icons/a24';
-import { Pixar } from './icons/pixar';
-import { Prada } from './icons/prada';
-import { Salomon } from './icons/salomon';
-import { Sony } from './icons/sony';
+import { AppleMusic, A24, Pixar, Prada, Salomon, OpenAI, Sony, Strava } from '@/components/motion-ui-demo-icons/2';
+// import { AppleMusic } from './icons/apple-music';
+// import { A24 } from './icons/a24';
+// import { Pixar } from './icons/pixar';
+// import { Prada } from './icons/prada';
+// import { Salomon } from './icons/salomon';
+// import { Sony } from './icons/sony';
 import { ArrowRightIcon } from 'lucide-react';
 
 const LINKS = [

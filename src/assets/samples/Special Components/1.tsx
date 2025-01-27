@@ -8,7 +8,7 @@ import {
 } from '@/components/website/dropdown-menu';
 import { motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
-import { TextMorph } from '@/components/motion-ui/text-morph';
+import { TextMorph } from "@/components/motion-ui/text-morph";
 
 export function TextMorphDropdown() {
   const TRANSITION = {

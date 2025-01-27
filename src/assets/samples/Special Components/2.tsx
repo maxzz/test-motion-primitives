@@ -2,7 +2,7 @@
 
 import { PlusIcon } from 'lucide-react';
 import { TextEffect } from '@/components/motion-ui/text-effect';
-import { BorderTrail } from '@/components/motion-ui/border-trail';
+import { BorderTrail } from "@/components/motion-ui/border-trail";
 import { useState } from 'react';
 
 const loadingPhases = [

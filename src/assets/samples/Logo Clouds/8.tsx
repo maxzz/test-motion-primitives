@@ -2,25 +2,26 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { DiscordRound, GithubRound, LinkedinRound, RedditRound } from './icons';
+// import { DiscordRound, GithubRound, LinkedinRound, RedditRound } from './icons';
+import { DiscordIcon, GitHubLightIcon, LinkedInIcon, RedditIcon } from '@/components/motion-ui-demo-icons/3';
 import { cn } from "@/utils";
 
 const ICONS = [
   {
     name: 'Discord',
-    icon: DiscordRound,
+    icon: DiscordIcon,
   },
   {
     name: 'LinkedIn',
-    icon: LinkedinRound,
+    icon: LinkedInIcon,
   },
   {
     name: 'GitHub',
-    icon: GithubRound,
+    icon: GitHubLightIcon,
   },
   {
     name: 'Reddit',
-    icon: RedditRound,
+    icon: RedditIcon,
   },
 ];
 

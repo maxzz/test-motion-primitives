@@ -1,5 +1,5 @@
 import { ArrowRightIcon } from 'lucide-react';
-import AnimatedBackground from '../motion-ui/animated-background';
+import {AnimatedBackground} from '@/components/motion-ui/animated-background';
 import Link from 'next/link';
 
 const LINKS = [

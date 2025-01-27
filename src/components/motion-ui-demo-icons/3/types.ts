@@ -1,4 +1,4 @@
-import { ComponentType } from "react"; //https://github.com/triggerdotdev/companyicons/blob/main/src/icons/companies/discord.tsx
+import { ComponentType } from "react"; //https://github.com/triggerdotdev/companyicons/blob/main/src/icons/companies/discord.tsx //G: 'svg company icons react'
 
 export type SVGProps = React.HTMLProps<SVGSVGElement>;
 export type IconComponent = ComponentType<any>;

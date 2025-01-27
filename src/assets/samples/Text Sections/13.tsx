@@ -1,5 +1,5 @@
 'use client';
-import { InView } from '@/components/motion-ui/in-view';
+import { InView } from "@/components/motion-ui/in-view";
 
 const HighlightedText = ({ children }: { children: React.ReactNode }) => {
   return (

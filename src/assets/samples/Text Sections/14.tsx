@@ -3,8 +3,8 @@ import {
   Disclosure,
   DisclosureTrigger,
   DisclosureContent,
-} from '@/components/motion-ui/disclosure';
-import { motion } from 'framer-motion';
+} from "@/components/motion-ui/disclosure";
+import { motion } from 'motion/react';
 import { useState } from 'react';
 
 const TRANSITION = {

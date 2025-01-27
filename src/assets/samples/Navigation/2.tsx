@@ -1,4 +1,4 @@
-import AnimatedBackground from '@/components/motion-ui/animated-background';
+import {AnimatedBackground} from '@/components/motion-ui/animated-background';
 
 export function Navigation2() {
   const TABS = ['Home', 'About', 'Services', 'Contact', 'Pricing', 'FAQ'];
