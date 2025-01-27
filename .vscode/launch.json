@@ -11,9 +11,14 @@
             // "skipFiles": [
             //     "<node_internals>/**"
             // ],
-            "runtimeExecutable": "tsx",
-            // "program": "${workspaceFolder}/scripts/build-samples.ts",
-            "program": "${file}",
+
+            // "runtimeExecutable": "tsx",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/tsx",
+
+            "program": "${workspaceFolder}/scripts/build-samples.ts",
+            // "program": "${file}",
+
+
             // "outFiles": [
             //     "${workspaceFolder}/**/*.js"
             // ],

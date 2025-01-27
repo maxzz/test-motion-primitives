@@ -1,6 +1,7 @@
 import path from "path";
 import fs from "fs";
 import { getFilenameAndExt, lastFname, pathWithoutFilename, toUnix } from "../src/utils/utils-os";
+import { argv } from "process";
 
 //prompt: create a function collect all js file names in the src/assets/samples folder and create single file with all the samples
 
@@ -15,6 +16,10 @@ type FileItem = {
     name: string;
     content: string;
 };
+
+process.argv.forEach((val, index) => {
+    console.log(`argv[${index}]: ${val}`);
+});
 
 const res = new Map<string, FileItem[]>();
 

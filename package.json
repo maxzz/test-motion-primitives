@@ -26,7 +26,7 @@
         "dev": "vite",
         "preview": "vite preview",
         "build": "tsc -b && vite build",
-        "scripts": "p tsx ./srctipts/build-samples.ts",
+        "scripts": "pnpm tsx ./scripts/build-samples.ts",
         "deploy": "pnpm run build && npx gh-pages -d dist"
     }
 }

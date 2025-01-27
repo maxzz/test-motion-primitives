@@ -32,6 +32,6 @@
     "include": [
         "src",
         "vite-typescript/vite-env.d.ts",
-        "srctipts/build-samples.ts",
+        "scripts/build-samples.ts",
     ]
 }
