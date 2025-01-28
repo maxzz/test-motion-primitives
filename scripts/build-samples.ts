@@ -73,11 +73,11 @@ function collectSampleFiles(folder: string): Map<string, SampleItem[]> {
 
 type ExportItem = {
     fullname: string;
-    componentName: string;
+    component: string;
     fileCnt: string;
 };
 
-type ExportItems = Record<string, ExportItem[] | string>;
+type ExportItems = Record<string, ExportItem[]>;
 
 function main() {
     const res = collectSampleFiles(inFolder);
@@ -99,18 +99,34 @@ function main() {
         (acc, [key, value]) => {
             const items = value.map(
                 (item) => {
-                    return {
+                    const rv: ExportItem = {
                         fullname: item.dir + '/' + item.name,
-                        componentName: item.funcName,
+                        component: item.funcName,
                         fileCnt: '',
                     };
+                    return rv;
                 }
             );
             acc[lastFname(key)] = items;
             return acc;
         }, {} as ExportItems
     );
-    console.log('%c// exportItems', 'color:green', JSON.stringify(exportItems, null, 2));
+
+    final.push(
+        "",
+        "export type ExportItem = {",
+        "    fullname: string;",
+        "    component: () => JSX.Element;",
+        "    fileCnt: string;",
+        "};",
+        "",
+    );
+
+    const exports = `export const allSamples: Record<string, ExportItem[]> = \n${JSON.stringify(exportItems, null, 2)}`;
+    final.push(exports);
+
+    let txt = final.join('\n');
+    txt = txt.replaceAll(/"component":\s+"([^"]+)"/g, 'component: $1'); // convert component name to component reference
 
 
     // generate exports
@@ -141,7 +157,7 @@ function main() {
 
     // console.log('%c// names', 'color:green', JSON.stringify(names, null, 2));
 
-    // writeFileSync(`${outFolder}/dev/all-samples-2.ts`, final.join('\n'));
+    writeFileSync(`${outFolder}/dev/all-samples-2.ts`, txt);
 }
 
 console.log('%cIn folder "%s"', 'color:orange', inFolder);
