@@ -71,40 +71,77 @@ function collectSampleFiles(folder: string): Map<string, SampleItem[]> {
     }
 }
 
+type ExportItem = {
+    fullname: string;
+    componentName: string;
+    fileCnt: string;
+};
+
+type ExportItems = Record<string, ExportItem[] | string>;
 
 function main() {
     const res = collectSampleFiles(inFolder);
+    const collected = [...res.entries()];
 
     const final: string[] = [];
 
-    [...res.entries()].forEach(
+    // generate imports
+    collected.forEach(
         ([key, value]) => {
             final.push(`// ${lastFname(key)}`);
 
-            const items = value
-                .map((item) => {
-                    const str = `export { ${item.funcName} } from "${item.dir}/${item.name}";`;
-                    return str;
-                });
-
+            const items = value.map((item) => `import { ${item.funcName} } from "${item.dir}/${item.name}";`);
             final.push(items.join('\n'));
         }
     );
 
-    const names = final
-        .map(
-            (item) => {
-                const name = item.match(/export\s+\{([^}]+)\}\s+from/)?.[1];
-                if (name) {
-                    console.log('%c// %s', 'color:green', name);
-                    return name;
+    const exportItems: ExportItems = collected.reduce(
+        (acc, [key, value]) => {
+            const items = value.map(
+                (item) => {
+                    return {
+                        fullname: item.dir + '/' + item.name,
+                        componentName: item.funcName,
+                        fileCnt: '',
+                    };
                 }
-            }
-        ).filter((item) => item);
+            );
+            acc[lastFname(key)] = items;
+            return acc;
+        }, {} as ExportItems
+    );
+    console.log('%c// exportItems', 'color:green', JSON.stringify(exportItems, null, 2));
 
-    console.log('%c// names', 'color:green', JSON.stringify(names, null, 2));
 
-    writeFileSync(`${outFolder}/dev/all-samples-2.ts`, final.join('\n'));
+    // generate exports
+    // Object.keys(exportItems).forEach(
+    //     (key) => {
+    //         const value = exportItems[key];
+    //         if (typeof value === 'string') {
+    //             final.push(value);
+    //         } else {
+    //             value.forEach((item) => {
+    //                 final.push(item);
+    //             });
+    //         }
+    //     }
+    // );
+
+
+    // const names = final
+    //     .map(
+    //         (item) => {
+    //             const name = item.match(/export\s+\{([^}]+)\}\s+from/)?.[1];
+    //             if (name) {
+    //                 console.log('%c// %s', 'color:green', name);
+    //                 return name;
+    //             }
+    //         }
+    //     ).filter((item) => item);
+
+    // console.log('%c// names', 'color:green', JSON.stringify(names, null, 2));
+
+    // writeFileSync(`${outFolder}/dev/all-samples-2.ts`, final.join('\n'));
 }
 
 console.log('%cIn folder "%s"', 'color:orange', inFolder);

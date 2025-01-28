@@ -25,5 +25,4 @@ dist-ssr
 
 #src/assets/all-samples.[t|j]s
 #src/assets/all-samples.json
-src/assets/all-samples*
-src/assets/samples/all-samples*
+src/assets/generated/dev
