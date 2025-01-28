@@ -83,18 +83,30 @@ function main() {
     const res = collectSampleFiles(inFolder);
     const collected = [...res.entries()];
 
-    const final: string[] = [];
+    const lines: string[] = [];
 
     // generate imports
     collected.forEach(
         ([key, value]) => {
-            final.push(`// ${lastFname(key)}`);
+            lines.push(`// ${lastFname(key)}`);
 
             const items = value.map((item) => `import { ${item.funcName} } from "${item.dir}/${item.name}";`);
-            final.push(items.join('\n'));
+            lines.push(items.join('\n'));
         }
     );
 
+    // generate types
+    lines.push(
+        "",
+        "export type ExportItem = {",
+        "    fullname: string;",
+        "    component: () => JSX.Element;",
+        "    fileCnt: string;",
+        "};",
+        "",
+    );
+
+    // generate exports
     const exportItems: ExportItems = collected.reduce(
         (acc, [key, value]) => {
             const items = value.map(
@@ -112,51 +124,14 @@ function main() {
         }, {} as ExportItems
     );
 
-    final.push(
-        "",
-        "export type ExportItem = {",
-        "    fullname: string;",
-        "    component: () => JSX.Element;",
-        "    fileCnt: string;",
-        "};",
-        "",
-    );
-
     const exports = `export const allSamples: Record<string, ExportItem[]> = \n${JSON.stringify(exportItems, null, 2)}`;
-    final.push(exports);
+    lines.push(exports);
 
-    let txt = final.join('\n');
-    txt = txt.replaceAll(/"component":\s+"([^"]+)"/g, 'component: $1'); // convert component name to component reference
+    // convert component name to component reference
+    let txt = lines.join('\n');
+    txt = txt.replaceAll(/"component":\s+"([^"]+)"/g, 'component: $1');
 
-
-    // generate exports
-    // Object.keys(exportItems).forEach(
-    //     (key) => {
-    //         const value = exportItems[key];
-    //         if (typeof value === 'string') {
-    //             final.push(value);
-    //         } else {
-    //             value.forEach((item) => {
-    //                 final.push(item);
-    //             });
-    //         }
-    //     }
-    // );
-
-
-    // const names = final
-    //     .map(
-    //         (item) => {
-    //             const name = item.match(/export\s+\{([^}]+)\}\s+from/)?.[1];
-    //             if (name) {
-    //                 console.log('%c// %s', 'color:green', name);
-    //                 return name;
-    //             }
-    //         }
-    //     ).filter((item) => item);
-
-    // console.log('%c// names', 'color:green', JSON.stringify(names, null, 2));
-
+    // write it down
     writeFileSync(`${outFolder}/dev/all-samples-2.ts`, txt);
 }
 
