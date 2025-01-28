@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
-import { lastFname, toUnix } from "../src/utils/utils-os";
 import { writeFileSync } from "./node-os-utlis";
+import { lastFname, toUnix } from "../src/utils/utils-os";
 
 //prompt: create a function collect all js file names in the src/assets/samples folder and create single file with all the samples
 
@@ -72,49 +72,6 @@ function collectSampleFiles(folder: string): Map<string, SampleItem[]> {
 }
 
 
-function print() {
-    const res = collectSampleFiles(inFolder);
-    // writeFileSync(`${outFolder}/dev/all-samples-1.json`, JSON.stringify([...res], null, 2));
-
-    const final: string[] = [];
-
-    [...res.entries()].forEach(
-        ([key, value]) => {
-            console.log('%c// %s', 'color:green', lastFname(key));
-
-            final.push(`// ${lastFname(key)}`);
-
-            const items = value
-                .sort((a, b) => Intl.Collator(undefined, { numeric: true }).compare(a.name, b.name))
-                .map((item) => {
-                    //console.log(`import { ${item.funcName} } from %c"%s/%s";`, 'color:orange', item.dir, item.name);
-
-                    return `export { ${item.funcName} } from "${item.dir}/${item.name}";`;
-                });
-
-            final.push(items.join('\n'));
-        }
-    );
-
-    const names = final
-        .map(
-            (item) => {
-                const name = item.match(/export\s+\{([^}]+)\}\s+from/)?.[1];
-                if (name) {
-                    console.log('%c// %s', 'color:green', name);
-                    return name;
-                }
-            }
-        ).filter((item) => item);
-    console.log('%c// names', 'color:orange', JSON.stringify(names, null, 2));
-
-    // writeFileSync(`${outFolder}/dev/all-samples-2.ts`, fileCnt.join('\n'));
-
-    // const flatArray = [...res.values()].flat();
-    // const textAllAsJson = `${JSON.stringify(flatArray, null, 2)}`;
-    // writeFileSync(`${outFolder}/dev/all-samples-2-flat.json`, textAllAsJson);
-}
-
 function main() {
     const res = collectSampleFiles(inFolder);
 
@@ -144,13 +101,12 @@ function main() {
                 }
             }
         ).filter((item) => item);
-        
+
     console.log('%c// names', 'color:green', JSON.stringify(names, null, 2));
 
     writeFileSync(`${outFolder}/dev/all-samples-2.ts`, final.join('\n'));
 }
 
-//process.argv.forEach((val, index) => console.log(`argv[${index}]: ${val}`));
 console.log('%cIn folder "%s"', 'color:orange', inFolder);
 
 main();
