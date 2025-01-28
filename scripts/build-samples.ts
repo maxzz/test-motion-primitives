@@ -1,12 +1,14 @@
 import path from "path";
 import fs from "fs";
 import { lastFname, toUnix } from "../src/utils/utils-os";
+import { writeFileSync } from "./node-os-utlis";
 
 //prompt: create a function collect all js file names in the src/assets/samples folder and create single file with all the samples
 
 const inFolder = './src/assets/samples'; // const inFolder = path.resolve('./src/assets/samples');
-const outFolder = './src/assets';
+const outFolder = './src/assets/generated';
 const replaceOutFolder = 'src/assets/samples';
+const replaceOutFolderTo = '../../samples';
 
 type SampleItem = {
     dir: string;
@@ -53,7 +55,7 @@ function collectSampleFiles(folder: string): Map<string, SampleItem[]> {
                     dir: toUnix(folder),
                     last: lastFname(folder),
                     name: fname,
-                    content,
+                    content: '',
                     funcName: exportFunction[1],
                 });
             }
@@ -71,86 +73,78 @@ function collectSampleFiles(folder: string): Map<string, SampleItem[]> {
 
 function print() {
     const res = collectSampleFiles(inFolder);
+    // writeFileSync(`${outFolder}/dev/all-samples-1.json`, JSON.stringify([...res], null, 2));
 
-    const flatArray = [...res.values()].flat();
+    const final: string[] = [];
 
-    const fileCnt: string[] = [];
+    [...res.entries()].forEach(
+        ([key, value]) => {
+            console.log('%c// %s', 'color:green', lastFname(key));
 
-    [...res.entries()].forEach(([key, value]) => {
-        console.log('%c// %s', 'color:green', lastFname(key));
+            final.push(`// ${lastFname(key)}`);
 
-        fileCnt.push(`// ${lastFname(key)}`);
+            const items = value
+                .sort((a, b) => Intl.Collator(undefined, { numeric: true }).compare(a.name, b.name))
+                .map((item) => {
+                    //console.log(`import { ${item.funcName} } from %c"%s/%s";`, 'color:orange', toUnix(item.dir).replace(replaceOutFolder, replaceOutFolderTo), item.name);
 
-        // value
-        //     .sort((a, b) => a.name.localeCompare(b.name))
-        //     .map((item) => {
-        //         console.log('import * from "%c%s/%s";', 'color:orange', toUnix(item.dir), item.name);
-        //     });
-        const items = value
-            .sort((a, b) => Intl.Collator(undefined, { numeric: true }).compare(a.name, b.name))
-            .map((item) => {
-                //console.log(`import { ${item.content} } from %c"%s/%s";`, 'color:orange', toUnix(item.dir).replace(replaceOutFolder, '.'), item.name);
+                    return `export { ${item.funcName} } from "${toUnix(item.dir).replace(replaceOutFolder, replaceOutFolderTo)}/${item.name}";`
+                });
 
-                const str = `export { ${item.content} } from "${toUnix(item.dir).replace(replaceOutFolder, '.')}/${item.name}";`;
-                return str;
-            });
-
-        fileCnt.push(items.join('\n'));
-    });
-
-    const names = fileCnt.map((item) => {
-        const name = item.match(/export\s+\{([^}]+)\}\s+from/)?.[1];
-        if (name) {
-            console.log('%c// %s', 'color:green', name);
-            return name;
+            final.push(items.join('\n'));
         }
-    }).filter((item) => item);
-    console.log('%c// names', 'color:green', JSON.stringify(names, null, 2));
+    );
 
-    // fs.writeFileSync(`${outFolder}/samples/all-samples-2.ts`, fileCnt.join('\n'));
+    const names = final
+        .map(
+            (item) => {
+                const name = item.match(/export\s+\{([^}]+)\}\s+from/)?.[1];
+                if (name) {
+                    console.log('%c// %s', 'color:green', name);
+                    return name;
+                }
+            }
+        ).filter((item) => item);
+    console.log('%c// names', 'color:orange', JSON.stringify(names, null, 2));
 
-    const textAllAsJson = `${JSON.stringify(flatArray, null, 2)}`;
+    // writeFileSync(`${outFolder}/dev/all-samples-2.ts`, fileCnt.join('\n'));
 
-    // fs.writeFileSync(`${outFolder}/samples/all-samples-2-flat.json`, textAllAsJson);
-    // fs.writeFileSync(`${outFolder}/samples/all-samples-1.json`, JSON.stringify([...res], null, 2));
+    // const flatArray = [...res.values()].flat();
+    // const textAllAsJson = `${JSON.stringify(flatArray, null, 2)}`;
+    // writeFileSync(`${outFolder}/dev/all-samples-2-flat.json`, textAllAsJson);
 }
 
 function main() {
     const res = collectSampleFiles(inFolder);
 
-    const fileCnt: string[] = [];
+    const final: string[] = [];
 
     [...res.entries()].forEach(([key, value]) => {
         console.log('%c// %s', 'color:green', lastFname(key));
 
-        fileCnt.push(`// ${lastFname(key)}`);
+        final.push(`// ${lastFname(key)}`);
 
-        // value
-        //     .sort((a, b) => a.name.localeCompare(b.name))
-        //     .map((item) => {
-        //         console.log('import * from "%c%s/%s";', 'color:orange', toUnix(item.dir), item.name);
-        //     });
         const items = value
             .map((item) => {
-                //console.log(`import { ${item.content} } from %c"%s/%s";`, 'color:orange', toUnix(item.dir).replace(replaceOutFolder, '.'), item.name);
+                //console.log(`import { ${item.funcName} } from %c"%s/%s";`, 'color:orange', toUnix(item.dir).replace(replaceOutFolder, replaceOutFolderTo), item.name);
 
-                const str = `export { ${item.content} } from "${toUnix(item.dir).replace(replaceOutFolder, '.')}/${item.name}";`;
+                const str = `export { ${item.funcName} } from "${toUnix(item.dir).replace(replaceOutFolder, replaceOutFolderTo)}/${item.name}";`;
                 return str;
             });
 
-        fileCnt.push(items.join('\n'));
+        final.push(items.join('\n'));
     });
 
-    const names = fileCnt.map((item) => {
+    const names = final.map((item) => {
         const name = item.match(/export\s+\{([^}]+)\}\s+from/)?.[1];
         if (name) {
-            console.log('%c// %s', 'color:green', name);
+            console.log('%c// %s', 'color:orange', name);
             return name;
         }
     }).filter((item) => item);
     console.log('%c// names', 'color:green', JSON.stringify(names, null, 2));
 
-    fs.writeFileSync(`${outFolder}/samples/all-samples-2.ts`, fileCnt.join('\n'));
+    writeFileSync(`${outFolder}/dev/all-samples-2.ts`, final.join('\n'));
 }
 
 //process.argv.forEach((val, index) => console.log(`argv[${index}]: ${val}`));
