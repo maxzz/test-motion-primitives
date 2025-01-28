@@ -4,3 +4,5 @@ export * from "./theme-apply";
 export * from "./merge-options";
 export * from "./merge-refs";
 export * from "./uuid";
+
+export * from "./utils-os";

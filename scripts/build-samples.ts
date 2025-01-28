@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
 import { writeFileSync } from "./node-os-utlis";
-import { lastFname, toUnix } from "../src/utils/utils-os";
+import { lastFname, toUnix, uuid } from "../src/utils";
 
 //prompt: create a function collect all js file names in the src/assets/samples folder and create single file with all the samples
 
@@ -75,6 +75,7 @@ type ExportItem = {
     fullname: string;
     component: string;
     fileCnt: string;
+    uuid: number;
 };
 
 type ExportItems = Record<string, ExportItem[]>;
@@ -102,6 +103,7 @@ function main() {
         "    fullname: string;",
         "    component: () => JSX.Element;",
         "    fileCnt: string;",
+        "    uuid: number;",
         "};",
         "",
     );
@@ -114,7 +116,8 @@ function main() {
                     const rv: ExportItem = {
                         fullname: item.dir + '/' + item.name,
                         component: item.funcName,
-                        fileCnt: '',
+                        fileCnt: item.content,
+                        uuid: uuid.asRelativeNumber(),
                     };
                     return rv;
                 }

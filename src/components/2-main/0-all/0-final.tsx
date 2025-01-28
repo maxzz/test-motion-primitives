@@ -1,7 +1,6 @@
 import { ScrollArea } from "@/ui/shadcn";
 import { allSamples } from "@/assets/generated/dev/all-samples-2";
-import { i } from "motion/react-client";
-import { getFilenameAndExt, lastFname } from "@/utils/utils-os";
+import { lastFname } from "@/utils/utils-os";
 
 export function Main() {
     return (
