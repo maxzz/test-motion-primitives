@@ -48,8 +48,8 @@ export function Faq1() {
         className='flex w-full flex-col divide-y divide-zinc-200 border-t border-zinc-200 dark:divide-zinc-700 dark:border-zinc-700'
         transition={{ duration: 0.2, ease: 'easeInOut' }}
       >
-        {CONTENT.map((item) => (
-          <AccordionItem value={item.value} className='py-4'>
+        {CONTENT.map((item, idx) => (
+          <AccordionItem value={item.value} className='py-4' key={idx}>
             <AccordionTrigger className='w-full text-left text-zinc-950 dark:text-zinc-50'>
               <div className='flex items-center justify-between'>
                 <div>{item.title}</div>

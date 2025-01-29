@@ -3,6 +3,7 @@ import { allSamples, type ExportItem } from "@/assets/generated/dev/all-samples-
 import { lastFname } from "@/utils/utils-os";
 import { proxy, useSnapshot } from "valtio";
 import { classNames } from "@/utils";
+import { CodeHighlighter } from "./code-highlighter";
 
 function findExportItem(uuid: number): ExportItem | undefined {
     if (!uuid) {
@@ -21,7 +22,7 @@ const editor = proxy({ uuid: 0 });
 
 export function Main() {
     return (
-        <main className="p-4 grid grid-cols-2 1debug">
+        <main className="p-4 grid grid-cols-[auto_1fr] 1debug">
             <ComponentsList />
 
             <div className="flex flex-col gap-4">
@@ -48,7 +49,7 @@ function ComponentsList() {
                                         const text = lastFname(item.fullname);
                                         return (
                                             <li
-                                                className={classNames("py-0.5 cursor-pointer", isSelected && "bg-green-600 font-semibold")}
+                                                className={classNames("py-0.5 select-none cursor-pointer", isSelected && "bg-green-600 font-semibold")}
                                                 onClick={() => editor.uuid = item.uuid}
                                                 key={item.uuid}
                                             >
@@ -89,8 +90,9 @@ function SourceCodeArea() {
     return (
         <div className="flex flex-col gap-4 bg-green-400">
             <ScrollArea className="h-96 w-full">
-                <div className="h-full w-full flex flex-col gap-4">
-                    {item?.fileCnt}
+                <div className="h-full w-full text-xs whitespace-pre-wrap">
+                    <CodeHighlighter code={item?.fileCnt} />
+                    {/* {item?.fileCnt} */}
                 </div>
             </ScrollArea>
         </div>

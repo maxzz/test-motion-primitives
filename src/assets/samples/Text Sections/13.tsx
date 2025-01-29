@@ -37,7 +37,7 @@ export function Text13() {
       <div className='py-24 sm:py-32'>
         <div className='mx-auto max-w-xl px-6 lg:px-8'>
           <div className='flex flex-col items-center space-y-8'>
-            <p className='text-xl text-zinc-500 dark:text-zinc-400'>
+            <div className='text-xl text-zinc-500 dark:text-zinc-400'>
               Effortless Creation: Transform ideas into stunning visuals with
               just a few words.{' '}
               <HighlightedText>
@@ -46,8 +46,8 @@ export function Text13() {
               , bringing your imagination to life. Generate professional-quality
               visuals without complex software or{' '}
               <HighlightedText>design experience</HighlightedText>.
-            </p>
-            <p className='text-xl text-zinc-500 dark:text-zinc-400'>
+            </div>
+            <div className='text-xl text-zinc-500 dark:text-zinc-400'>
               Unparalleled Quality: Experience AI-generated images with
               breathtaking detail and clarity.{' '}
               <HighlightedText>
@@ -55,8 +55,8 @@ export function Text13() {
               </HighlightedText>
               , rivaling the work of master artists. Create images
               indistinguishable from those made by human experts.
-            </p>
-            <p className='text-xl text-zinc-500 dark:text-zinc-400'>
+            </div>
+            <div className='text-xl text-zinc-500 dark:text-zinc-400'>
               Limitless Imagination: Explore infinite creative possibilities
               with cutting-edge AI. Our platform adapts to your needs, offering
               an ever-expanding universe of visual concepts.{' '}
@@ -64,7 +64,7 @@ export function Text13() {
                 Push boundaries with genre-blending compositions
               </HighlightedText>{' '}
               and futuristic concepts.
-            </p>
+            </div>
           </div>
         </div>
       </div>
