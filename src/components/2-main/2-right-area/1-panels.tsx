@@ -1,31 +1,18 @@
-import { type ComponentProps } from "react";
+import { type ComponentPropsWithRef } from "react";
 import { useSnapshot } from "valtio";
 import { classNames } from "@/utils";
 import { ScrollArea } from "@/ui/shadcn";
-import { allSamples, type ExportItem } from "@/assets/generated/dev/all-samples-2";
-import { CodeHighlighter } from "./8-code-highlighter";
 import { editor } from "../0-all/8-editor-state";
+import { CodeHighlighter } from "./8-code-highlighter";
+import { findExportItem } from "./8-find-item";
 
-export function RightArea({ className }: ComponentProps<"div">) {
+export function RightArea({ className }: ComponentPropsWithRef<"div">) {
     return (
         <div className={classNames("flex flex-col gap-4", className)}>
             <DemoScrollArea />
             <SourceCodeArea />
         </div>
     );
-}
-
-function findExportItem(uuid: number): ExportItem | undefined {
-    if (!uuid) {
-        return;
-    }
-    for (const [key, value] of Object.entries(allSamples)) {
-        for (const item of value) {
-            if (item.uuid === uuid) {
-                return item;
-            }
-        }
-    }
 }
 
 export function DemoScrollArea() {
