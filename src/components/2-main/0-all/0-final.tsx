@@ -1,4 +1,4 @@
-import { ComponentsList } from "./1-components-list";
+import { ComponentsList } from "../1-left-area/1-components-list";
 import { RightArea } from "../2-right-area";
 
 export function Main() {
