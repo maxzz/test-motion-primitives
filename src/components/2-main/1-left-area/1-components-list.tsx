@@ -1,11 +1,12 @@
-import { allSamples, type ExportItem } from "@/assets/generated/dev/all-samples-2";
-import { lastFname, classNames } from "@/utils";
+import { type ComponentProps } from "react";
 import { useSnapshot } from "valtio";
+import { lastFname, classNames } from "@/utils";
 import { editor } from "../0-all/8-editor-state";
+import { allSamples, type ExportItem } from "@/assets/generated/dev/all-samples-2";
 
-export function ComponentsList() {
+export function ComponentsList({ className }: ComponentProps<"div">) {
     return (
-        <div className="px-4 py-2 bg-green-200">
+        <div className={classNames("", className)}>
             {Object.entries(allSamples).map(
                 ([key, value]) => {
                     return (

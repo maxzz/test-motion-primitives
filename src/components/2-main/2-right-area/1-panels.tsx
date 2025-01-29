@@ -6,7 +6,7 @@ import { allSamples, type ExportItem } from "@/assets/generated/dev/all-samples-
 import { CodeHighlighter } from "./8-code-highlighter";
 import { editor } from "../0-all/8-editor-state";
 
-export function RightArea({className}: ComponentProps<"div">) {
+export function RightArea({ className }: ComponentProps<"div">) {
     return (
         <div className={classNames("flex flex-col gap-4", className)}>
             <DemoScrollArea />
