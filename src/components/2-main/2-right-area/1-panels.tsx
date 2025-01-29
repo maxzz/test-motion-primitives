@@ -22,7 +22,7 @@ export function RightArea({ className }: ComponentPropsWithRef<"div">) {
 
 export function DemoScrollArea({ uuid, item }: { uuid: number | undefined; item: ExportItem | undefined; }) {
     return (
-        <div className="relative flex flex-col gap-4 bg-green-300">
+        <div className="relative w-full h-full flex flex-col gap-4 bg-green-300">
             <Button
                 className="absolute left-4 top-4 z-10" variant="outline" size="icon"
                 onClick={() => {
@@ -33,14 +33,18 @@ export function DemoScrollArea({ uuid, item }: { uuid: number | undefined; item:
                 Code
             </Button>
 
-            <ScrollArea className="w-full h-96">
-                <div className="h-full w-full flex flex-col gap-4">
-                    {item
-                        ? <item.component />
-                        : uuid
-                    }
+            <div className="relative w-full h-full">
+                <div className="absolute inset-0">
+                    <ScrollArea className="w-full h-full bg-purple-400">
+                        <div className="w-full h-full flex flex-col gap-4">
+                            {item
+                                ? <item.component />
+                                : uuid
+                            }
+                        </div>
+                    </ScrollArea>
                 </div>
-            </ScrollArea>
+            </div>
         </div>
     );
 }
@@ -48,12 +52,14 @@ export function DemoScrollArea({ uuid, item }: { uuid: number | undefined; item:
 export function SourceCodeArea({ uuid, item }: { uuid: number | undefined; item: ExportItem | undefined; }) {
     return (
         <SourceCodeDrawer>
-            <div className="bg-purple-400">
-                <ScrollArea className="w-full h-full">
-                    <div className="h-full w-full text-xs whitespace-pre-wrap">
-                        <CodeHighlighter code={item?.fileCnt} />
-                    </div>
-                </ScrollArea>
+            <div className="relative">
+                <div className="absolute inset-0 bg-purple-400">
+                    <ScrollArea className="w-full h-full">
+                        <div className="h-full w-full text-xs whitespace-pre-wrap">
+                            <CodeHighlighter code={item?.fileCnt} />
+                        </div>
+                    </ScrollArea>
+                </div>
             </div>
         </SourceCodeDrawer>
     );
