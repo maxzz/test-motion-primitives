@@ -1,5 +1,5 @@
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'; //https://github.com/react-syntax-highlighter/react-syntax-highlighter
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { vs, vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import tsx from 'react-syntax-highlighter/dist/esm/languages/prism/tsx';
 

@@ -1,7 +1,7 @@
 import { allSamples, type ExportItem } from "@/assets/generated/dev/all-samples-2";
 import { lastFname, classNames } from "@/utils";
 import { useSnapshot } from "valtio";
-import { editor } from "./0-final";
+import { editor } from "./8-editor-state";
 
 export function ComponentsList() {
     return (
