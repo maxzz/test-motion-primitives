@@ -32,7 +32,8 @@
         "react-syntax-highlighter": "^15.6.1",
         "react-use-measure": "^2.1.1",
         "tailwind-merge": "^2.6.0",
-        "valtio": "^2.1.2"
+        "valtio": "^2.1.2",
+        "vaul": "^1.1.2"
     },
     "scripts": {
         "dev": "vite",
