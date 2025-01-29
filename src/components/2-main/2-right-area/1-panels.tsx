@@ -23,7 +23,13 @@ export function RightArea({ className }: ComponentPropsWithRef<"div">) {
 export function DemoScrollArea({ uuid, item }: { uuid: number | undefined; item: ExportItem | undefined; }) {
     return (
         <div className="relative flex flex-col gap-4 bg-green-300">
-            <Button className="absolute left-4 top-4" variant="outline" size="icon" onClick={() => editor.isDrawerOpen = true}>
+            <Button
+                className="absolute left-4 top-4 z-10" variant="outline" size="icon"
+                onClick={() => {
+                    editor.isDrawerOpen = true;
+                    console.log('isDrawerOpen', editor.isDrawerOpen);
+                }}
+            >
                 Code
             </Button>
 
@@ -43,7 +49,7 @@ export function SourceCodeArea({ uuid, item }: { uuid: number | undefined; item:
     return (
         <SourceCodeDrawer>
             <div className="bg-purple-400">
-                <ScrollArea className="h-96 w-full">
+                <ScrollArea className="w-full h-full">
                     <div className="h-full w-full text-xs whitespace-pre-wrap">
                         <CodeHighlighter code={item?.fileCnt} />
                     </div>
