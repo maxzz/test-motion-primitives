@@ -11,9 +11,9 @@ export function RightArea({ className }: ComponentPropsWithRef<"div">) {
     const uuid = useSnapshot(editor).uuid;
     const item = findExportItem(uuid);
     return (
-        <div className={classNames("flex flex-col gap-4", className)}>
+        <div className={classNames("relative w-full h-full", className)}>
             <DemoScrollArea uuid={uuid} item={item} />
-            <SourceCodeArea uuid={uuid} item={item} />
+            {/* <SourceCodeArea uuid={uuid} item={item} /> */}
         </div>
     );
 }
