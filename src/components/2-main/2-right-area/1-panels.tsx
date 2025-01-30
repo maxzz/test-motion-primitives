@@ -15,9 +15,10 @@ export function RightArea({ className }: ComponentPropsWithRef<"div">) {
         <div className={classNames("relative w-full h-full", className)}>
 
             <DemoSourceSwitcher className="px-3" />
+
             {!isDrawerOpen && <DemoScrollArea uuid={uuid} item={item} />}
             {isDrawerOpen && <SourceCodeArea uuid={uuid} item={item} />}
-
+            
         </div>
     );
 }
