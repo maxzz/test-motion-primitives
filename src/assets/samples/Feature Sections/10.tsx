@@ -4,25 +4,30 @@ export function Feature10() {
     return (
         <div className='bg-white py-24 dark:bg-black sm:py-32'>
             <div className='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+
                 <div className='relative flex flex-col space-y-32'>
-                    {FEATURES.map((feature, index) => (
-                        <div
-                            key={index}
-                            className='relative top-24 grid h-auto grid-cols-1 gap-8 bg-white dark:bg-black sm:top-32 md:grid-cols-2 md:gap-16 lg:sticky lg:h-[calc(400px+9rem)] lg:gap-32'
-                        >
-                            <div className='py-16 text-base text-zinc-900 dark:text-white lg:text-lg'>
-                                {feature.text}
+                    {FEATURES.map(
+                        (feature, index) => (
+                            <div className='
+                                relative 
+                                top-24 sm:top-32 
+                                h-auto lg:sticky lg:h-[calc(400px+9rem)]
+                                bg-white dark:bg-black 
+                                grid  grid-cols-1 gap-8 md:grid-cols-2 md:gap-16 lg:gap-32
+                                ' key={index}
+                            >
+                                <div className='py-16 text-base text-zinc-900 dark:text-white lg:text-lg'>
+                                    {feature.text}
+                                </div>
+
+                                <div className='h-[300px] w-full lg:h-[400px]'>
+                                    <img className='h-full w-full rounded-lg object-cover' src={feature.image} alt={`Feature ${index + 1}`} />
+                                </div>
                             </div>
-                            <div className='h-[300px] w-full lg:h-[400px]'>
-                                <img
-                                    src={feature.image}
-                                    alt={`Feature ${index + 1}`}
-                                    className='h-full w-full rounded-lg object-cover'
-                                />
-                            </div>
-                        </div>
-                    ))}
+                        )
+                    )}
                 </div>
+
             </div>
         </div>
     );

@@ -2,56 +2,52 @@
 import { useState } from 'react';
 import { AnimatedBackground } from "@/components/motion-ui/animated-background"; // images are from https://www.cosmos.so/ibelick/nocturne
 
-function FeatureImg({ src, alt }: { src: string; alt: string; }) {
-    return (
-        <img
-            src={src}
-            alt={alt}
-            className='aspect-square h-[400px] w-full rounded-2xl bg-blue-200/50 object-cover'
-        />
-    );
-}
-
 export function Feature8() {
     const [activeFeature, setActiveFeature] = useState<string>(FEATURES[0].tab);
-
     return (
         <div className='overflow-auto py-24 sm:overflow-hidden sm:py-32'>
             <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+
                 <div className='mx-auto mb-12 max-w-lg text-center'>
                     <h2 className='text-3xl sm:text-4xl'>
                         A new way to build AI apps, for developers and designers.
                     </h2>
                 </div>
+
                 <div className='mb-8 overflow-x-auto [scrollbar-width:none]'>
                     <div className='flex min-w-max items-center justify-center space-x-2'>
                         <AnimatedBackground
                             className='whitespace-nowrap rounded-full bg-zinc-200 dark:bg-zinc-800'
-                            transition={{
-                                ease: 'easeInOut',
-                                duration: 0.2,
-                            }}
+                            transition={{ ease: 'easeInOut', duration: 0.2, }}
                             defaultValue={activeFeature}
-                            onValueChange={(newActiveId) => {
-                                setActiveFeature(newActiveId as string);
-                            }}
+                            onValueChange={(newActiveId) => { setActiveFeature(newActiveId as string); }}
                         >
-                            {FEATURES.map((feature, index) => (
-                                <button
-                                    key={index}
-                                    data-id={feature.tab}
-                                    type='button'
-                                    className='px-3 py-1.5 text-sm text-zinc-900 transition-colors duration-200 hover:text-zinc-950 dark:text-zinc-50 sm:px-4 sm:text-base'
-                                >
-                                    {feature.tab}
-                                </button>
-                            ))}
+                            {FEATURES.map(
+                                (feature, index) => (
+                                    <button
+                                        className='px-3 py-1.5 text-sm text-zinc-900 transition-colors duration-200 hover:text-zinc-950 dark:text-zinc-50 sm:px-4 sm:text-base'
+                                        data-id={feature.tab}
+                                        type='button'
+                                        key={index}
+                                    >
+                                        {feature.tab}
+                                    </button>
+                                )
+                            )}
                         </AnimatedBackground>
                     </div>
                 </div>
+
                 {FEATURES.find((feature) => feature.tab === activeFeature)?.content}
+
             </div>
         </div>
+    );
+}
+
+function FeatureImg({ src, alt }: { src: string; alt: string; }) {
+    return (
+        <img className='aspect-square h-[400px] w-full rounded-2xl bg-blue-200/50 object-cover' src={src} alt={alt} />
     );
 }
 

@@ -6,10 +6,7 @@ export function Feature13() {
     const containerRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ['start start', 'end end'],
-    });
+    const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end end'], });
 
     useEffect(
         () => {

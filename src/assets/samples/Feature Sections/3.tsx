@@ -6,55 +6,40 @@ import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
 export function Feature3() {
     const [index, setIndex] = useState(0);
-
     return (
         <div className='py-24 sm:py-32'>
+
             <div className='container mx-auto mb-8 max-w-screen-lg px-4 md:mb-12'>
                 <h2 className='text-2xl font-medium text-zinc-900 dark:text-white md:text-4xl'>
                     Visualize your ideas instantly
                 </h2>
             </div>
-            <Carousel
-                index={index}
-                onIndexChange={setIndex}
-                className='pl-[max(16px,calc((100%-1024px)/2+16px))]'
-                disableDrag
-            >
-                <CarouselContent
-                    className='-ml-2 md:-ml-8'
-                    transition={{
-                        type: 'spring',
-                        stiffness: 26.7,
-                        damping: 4.1,
-                        mass: 0.2,
-                    }}
-                >
-                    {FEATURES.map((feature, index) => (
-                        <CarouselItem key={index} className='basis-1/4 pl-2 md:pl-8'>
-                            <Link
-                                href='#'
-                                className='relative flex aspect-[3/4] items-center justify-center overflow-hidden rounded-md'
-                            >
-                                <img
-                                    src={feature.image}
-                                    alt={feature.title}
-                                    className='pointer-events-none h-full w-full object-cover'
-                                />
-                                <div className='absolute inset-0 bg-black opacity-50'></div>
-                                <div className='absolute left-0 right-0 top-0 p-4 text-white'>
-                                    <p className='mb-0.5 text-xs'>{feature.description}</p>
-                                    <h3 className='text-base'>{feature.title}</h3>
-                                </div>
-                            </Link>
-                        </CarouselItem>
-                    ))}
+
+            <Carousel className='pl-[max(16px,calc((100%-1024px)/2+16px))]' index={index} onIndexChange={setIndex} disableDrag>
+                <CarouselContent className='-ml-2 md:-ml-8' transition={{ type: 'spring', stiffness: 26.7, damping: 4.1, mass: 0.2, }}>
+                    {FEATURES.map(
+                        (feature, index) => (
+                            <CarouselItem key={index} className='basis-1/4 pl-2 md:pl-8'>
+                                <Link href='#' className='relative flex aspect-[3/4] items-center justify-center overflow-hidden rounded-md'>
+                                    <img className='pointer-events-none h-full w-full object-cover' src={feature.image} alt={feature.title} />
+                                    
+                                    <div className='absolute inset-0 bg-black opacity-50'></div>
+                                    <div className='absolute left-0 right-0 top-0 p-4 text-white'>
+                                        <p className='mb-0.5 text-xs'>{feature.description}</p>
+                                        <h3 className='text-base'>{feature.title}</h3>
+                                    </div>
+                                </Link>
+                            </CarouselItem>
+                        )
+                    )}
                 </CarouselContent>
             </Carousel>
+
             <div className='container mx-auto mt-6 flex max-w-screen-lg items-end justify-end px-4'>
                 <div className='flex gap-4'>
                     <button
-                        type='button'
                         className='flex h-9 w-9 items-center justify-center rounded-full bg-zinc-200 text-zinc-950 opacity-100 disabled:opacity-40'
+                        type='button'
                         aria-label='Previous slide'
                         disabled={index === 0}
                         onClick={() => setIndex(index - 1)}
@@ -62,8 +47,8 @@ export function Feature3() {
                         <ChevronLeftIcon className='h-5 w-5' />
                     </button>
                     <button
-                        type='button'
                         className='flex h-9 w-9 items-center justify-center rounded-full bg-zinc-200 text-zinc-950 opacity-100 disabled:opacity-40'
+                        type='button'
                         aria-label='Next slide'
                         disabled={index === 5}
                         onClick={() => setIndex(index + 1)}
@@ -72,6 +57,7 @@ export function Feature3() {
                     </button>
                 </div>
             </div>
+
         </div>
     );
 }

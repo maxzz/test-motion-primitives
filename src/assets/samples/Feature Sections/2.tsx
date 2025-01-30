@@ -7,8 +7,10 @@ export function Feature2() {
     return (
         <div className='py-24 sm:py-32'>
             <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+
                 <div className='flex flex-col lg:grid lg:grid-cols-2'>
                     <div className='p-0 sm:p-8 lg:p-16'>
+
                         <div className='mb-12 text-left'>
                             <h2 className='mb-4 text-3xl text-zinc-900 dark:text-white sm:text-4xl'>
                                 Let AI generate your next product
@@ -17,40 +19,40 @@ export function Feature2() {
                                 Easy generate videos, images, and more with our model.
                             </p>
                         </div>
+
                         <div className='flex flex-col space-y-2'>
-                            {FEATURES.map((item) => (
-                                <button
-                                    type='button'
-                                    key={item.id}
-                                    className={cn(
-                                        'w-full rounded-lg p-3',
-                                        activeAccordionId === item.id &&
-                                        'bg-zinc-100 dark:bg-zinc-800'
-                                    )}
-                                    onClick={() => setActiveAccordionId(item.id)}
-                                >
-                                    <h3 className='text-left text-lg text-zinc-950 dark:text-zinc-50'>
-                                        {item.title}
-                                    </h3>
-                                    <p className='text-left text-zinc-500 dark:text-zinc-400'>
-                                        {item.content}
-                                    </p>
-                                </button>
-                            ))}
+                            {FEATURES.map(
+                                (item) => (
+                                    <button
+                                        className={cn('w-full rounded-lg p-3', activeAccordionId === item.id && 'bg-zinc-100 dark:bg-zinc-800')}
+                                        type='button'
+                                        key={item.id}
+                                        onClick={() => setActiveAccordionId(item.id)}
+                                    >
+                                        <h3 className='text-left text-lg text-zinc-950 dark:text-zinc-50'>
+                                            {item.title}
+                                        </h3>
+
+                                        <p className='text-left text-zinc-500 dark:text-zinc-400'>
+                                            {item.content}
+                                        </p>
+                                    </button>
+                                )
+                            )}
                         </div>
                     </div>
+
                     <div className='relative h-auto lg:block'>
                         <img
-                            src={
-                                FEATURES.find((item) => item.id === activeAccordionId)?.image
-                            }
-                            alt='Accordion Image'
                             className='aspect-square h-full w-full object-cover'
+                            src={FEATURES.find((item) => item.id === activeAccordionId)?.image}
+                            alt='Accordion Image'
                             key={activeAccordionId}
                         />
-                        <div className='absolute inset-0 bg-black opacity-20'></div>
+                        <div className='absolute inset-0 bg-black opacity-20' />
                     </div>
                 </div>
+                
             </div>
         </div>
     );
