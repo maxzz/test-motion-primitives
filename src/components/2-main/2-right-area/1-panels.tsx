@@ -9,10 +9,11 @@ import { findExportItem } from "./8-find-item";
 export function RightArea({ className }: ComponentPropsWithRef<"div">) {
     const uuid = useSnapshot(editor).uuid;
     const item = findExportItem(uuid);
+    const isDrawerOpen = useSnapshot(editor).isDrawerOpen;
     return (
         <div className={classNames("relative w-full h-full", className)}>
-            <DemoScrollArea uuid={uuid} item={item} />
-            <SourceCodeArea uuid={uuid} item={item} />
+            {!isDrawerOpen && <DemoScrollArea uuid={uuid} item={item} />}
+            {isDrawerOpen && <SourceCodeArea uuid={uuid} item={item} />}
         </div>
     );
 }
