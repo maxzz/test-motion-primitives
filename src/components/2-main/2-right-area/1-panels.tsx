@@ -6,7 +6,7 @@ import { ScrollArea } from "@/ui/shadcn";
 import { editor } from "../0-all/8-editor-state";
 import { CodeHighlighter } from "./8-code-highlighter";
 import { findExportItem } from "./8-find-item";
-import { Button } from "@/ui/button";
+import { Button } from "@/ui/shadcn";
 import { SourceCodeDrawer } from "./2-drawer";
 
 export function RightArea({ className }: ComponentPropsWithRef<"div">) {
@@ -52,7 +52,7 @@ export function DemoScrollArea({ uuid, item }: { uuid: number | undefined; item:
 export function SourceCodeArea({ uuid, item }: { uuid: number | undefined; item: ExportItem | undefined; }) {
     return (
         <SourceCodeDrawer>
-            <div className="relative">
+            <div className="relative w-full h-full">
                 <div className="absolute inset-0 bg-purple-400">
                     <ScrollArea className="w-full h-full">
                         <div className="h-full w-full text-xs whitespace-pre-wrap">
@@ -64,3 +64,7 @@ export function SourceCodeArea({ uuid, item }: { uuid: number | undefined; item:
         </SourceCodeDrawer>
     );
 }
+
+//TODO: reload demo page
+//TODO: code icon
+//TODO: drawer close button
