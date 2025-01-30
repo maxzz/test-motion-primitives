@@ -1,12 +1,13 @@
+import { type ComponentPropsWithRef } from "react";
 import { useSnapshot } from "valtio";
 import { editor } from "../0-all/8-editor-state";
 import { classNames } from "@/utils";
 import { Button } from "@/ui/shadcn";
 
-export function DemoSourceSwitcher() {
+export function DemoSourceSwitcher({className, ...rest}: ComponentPropsWithRef<"div">) {
     const isDrawerOpen = useSnapshot(editor).isDrawerOpen;
     return (
-        <div className="absolute left-4 top-4 z-10 flex items-center gap-1">
+        <div className={classNames("flex items-center gap-1")} {...rest}>
             <Button
                 className={classNames("px-0", isDrawerOpen && "underline")} variant="link" size="xs"
                 onClick={() => {
