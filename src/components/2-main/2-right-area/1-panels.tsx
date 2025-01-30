@@ -13,9 +13,11 @@ export function RightArea({ className }: ComponentPropsWithRef<"div">) {
     const isDrawerOpen = useSnapshot(editor).isDrawerOpen;
     return (
         <div className={classNames("relative w-full h-full", className)}>
-            <DemoSourceSwitcher className="" />
+
+            <DemoSourceSwitcher className="px-3" />
             {!isDrawerOpen && <DemoScrollArea uuid={uuid} item={item} />}
             {isDrawerOpen && <SourceCodeArea uuid={uuid} item={item} />}
+
         </div>
     );
 }

@@ -4,25 +4,19 @@ import { editor } from "../0-all/8-editor-state";
 import { classNames } from "@/utils";
 import { Button } from "@/ui/shadcn";
 
-export function DemoSourceSwitcher({className, ...rest}: ComponentPropsWithRef<"div">) {
+export function DemoSourceSwitcher({ className, ...rest }: ComponentPropsWithRef<"div">) {
     const isDrawerOpen = useSnapshot(editor).isDrawerOpen;
     return (
-        <div className={classNames("flex items-center gap-1")} {...rest}>
+        <div className={classNames("flex items-center gap-1", className)} {...rest}>
             <Button
-                className={classNames("px-0", isDrawerOpen && "underline")} variant="link" size="xs"
-                onClick={() => {
-                    editor.isDrawerOpen = true;
-                    console.log('isDrawerOpen', editor.isDrawerOpen);
-                }}
+                className={classNames("px-0 hover:no-underline", !isDrawerOpen && "underline")} variant="link" size="xs"
+                onClick={() => editor.isDrawerOpen = false}
             >
                 Demo
             </Button>
             <Button
-                className={classNames("px-0", isDrawerOpen && "underline")} variant="link" size="xs"
-                onClick={() => {
-                    editor.isDrawerOpen = true;
-                    console.log('isDrawerOpen', editor.isDrawerOpen);
-                }}
+                className={classNames("px-0 hover:no-underline", isDrawerOpen && "underline")} variant="link" size="xs"
+                onClick={() => editor.isDrawerOpen = true}
             >
                 Code
             </Button>
