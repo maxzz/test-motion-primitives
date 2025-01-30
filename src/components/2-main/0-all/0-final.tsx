@@ -1,5 +1,5 @@
 import { ScrollArea } from "@/ui/shadcn";
-import { ComponentsList } from "../1-left-area/1-components-list";
+import { ComponentsList } from "../1-left-area";
 import { RightArea } from "../2-right-area";
 
 export function Main() {
@@ -14,7 +14,7 @@ export function Main() {
                 </div>
             </div>
 
-            <RightArea className="" />
+            <RightArea className="relative w-full h-full" />
         </main>
     );
 }
