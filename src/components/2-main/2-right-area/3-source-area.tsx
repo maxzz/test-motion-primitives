@@ -4,7 +4,7 @@ import { ScrollArea } from "@/ui/shadcn";
 import { editor } from "../0-all/8-editor-state";
 import { CodeHighlighter } from "./8-code-highlighter";
 import { Button } from "@/ui/shadcn";
-import { SourceCodeDrawer } from "./2-drawer";
+import { SourceCodeDrawer } from "./4-drawer";
 import { CircleArrowLeft } from "lucide-react";
 
 export function SourceCodeArea({ uuid, item }: { uuid: number | undefined; item: ExportItem | undefined; }) {

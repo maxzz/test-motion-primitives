@@ -2,8 +2,8 @@ import { type ComponentPropsWithRef } from "react";
 import { useSnapshot } from "valtio";
 import { classNames } from "@/utils";
 import { editor } from "../0-all/8-editor-state";
-import { DemoScrollArea } from "./3-demo-area";
-import { SourceCodeArea } from "./4-source-area";
+import { DemoScrollArea } from "./2-demo-area";
+import { SourceCodeArea } from "./3-source-area";
 import { findExportItem } from "./8-find-item";
 
 export function RightArea({ className }: ComponentPropsWithRef<"div">) {
