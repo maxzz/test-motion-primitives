@@ -2,13 +2,14 @@ import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'; //ht
 import { vs, vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
 import tsx from 'react-syntax-highlighter/dist/esm/languages/prism/tsx';
+import { classNames } from '@/utils';
 
 SyntaxHighlighter.registerLanguage('jsx', jsx);
 SyntaxHighlighter.registerLanguage('tsx', tsx);
 
-export function CodeHighlighter({ code }: { code: string | undefined; }) {
+export function CodeHighlighter({ code, className }: { code: string | undefined; className?: string; }) {
     return (
-        <SyntaxHighlighter className="!m-0 w-full h-full" language="javascript" style={vscDarkPlus}>
+        <SyntaxHighlighter className={classNames("!m-0 w-full h-full", className)} language="javascript" style={vscDarkPlus}>
             {code || ''}
         </SyntaxHighlighter>
     );
