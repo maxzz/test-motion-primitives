@@ -1,4 +1,4 @@
-import { type ComponentPropsWithRef } from "react";
+import { useRef, type ComponentPropsWithRef } from "react";
 import { useSnapshot } from "valtio";
 import { classNames } from "@/utils";
 import { type ExportItem } from "@/assets/generated/dev/all-samples-2";
@@ -8,6 +8,7 @@ import { CodeHighlighter } from "./8-code-highlighter";
 import { findExportItem } from "./8-find-item";
 import { Button } from "@/ui/shadcn";
 import { SourceCodeDrawer } from "./2-drawer";
+import { CircleArrowLeft } from "lucide-react";
 
 export function RightArea({ className }: ComponentPropsWithRef<"div">) {
     const uuid = useSnapshot(editor).uuid;
@@ -50,18 +51,24 @@ export function DemoScrollArea({ uuid, item }: { uuid: number | undefined; item:
 }
 
 export function SourceCodeArea({ uuid, item }: { uuid: number | undefined; item: ExportItem | undefined; }) {
+    const containerRef = useRef<HTMLDivElement>(null);
     return (
-        <SourceCodeDrawer>
-            <div className="relative w-full h-full">
-                <div className="absolute inset-0 bg-purple-400">
+        <div className="relative w-full h-full">
+            <div className="absolute inset-0 bg-purple-400" ref={containerRef}>
+                <SourceCodeDrawer container={containerRef}>
+
+                    <Button className="absolute top-4 right-4 z-10 bg-background" onClick={() => editor.isDrawerOpen = false}>
+                        <CircleArrowLeft />
+                    </Button>
+
                     <ScrollArea className="w-full h-full">
                         <div className="h-full w-full text-xs whitespace-pre-wrap">
                             <CodeHighlighter code={item?.fileCnt} />
                         </div>
                     </ScrollArea>
-                </div>
+                </SourceCodeDrawer>
             </div>
-        </SourceCodeDrawer>
+        </div>
     );
 }
 
