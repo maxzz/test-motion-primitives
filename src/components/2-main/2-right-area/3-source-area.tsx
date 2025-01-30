@@ -10,6 +10,7 @@ import { CircleArrowLeft } from "lucide-react";
 export function SourceCodeArea({ uuid, item }: { uuid: number | undefined; item: ExportItem | undefined; }) {
     const containerRef = useRef<HTMLDivElement>(null);
     return (
+        // <SourceCodeDrawer container={containerRef}>
         <div className="relative w-full h-full">
             <div className="absolute inset-0 bg-purple-400" ref={containerRef}>
                 <SourceCodeDrawer container={containerRef}>
@@ -26,6 +27,7 @@ export function SourceCodeArea({ uuid, item }: { uuid: number | undefined; item:
                 </SourceCodeDrawer>
             </div>
         </div>
+        // </SourceCodeDrawer>
     );
 }
 
