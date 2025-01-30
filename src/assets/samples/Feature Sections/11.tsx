@@ -1,8 +1,6 @@
 'use client';
-import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
-
-// images from https://www.cosmos.so/e/469400162
+import { motion, useScroll, useTransform } from 'motion/react'; // images from https://www.cosmos.so/e/469400162
 
 export function Feature11() {
   const containerRef = useRef<HTMLDivElement>(null);

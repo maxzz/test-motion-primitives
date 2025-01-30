@@ -1,9 +1,7 @@
 'use client';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { PlayIcon } from 'lucide-react';
 import { useRef } from 'react';
-
-// image from https://www.cosmos.so/e/1909697047
+import { motion, useScroll, useTransform } from 'motion/react'; // image from https://www.cosmos.so/e/1909697047
+import { PlayIcon } from 'lucide-react';
 
 export function Feature9() {
   const containerRef = useRef(null);
