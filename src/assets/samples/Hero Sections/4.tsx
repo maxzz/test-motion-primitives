@@ -92,7 +92,7 @@ export function Hero4() {
               href='#'
               className='inline-flex items-center gap-1 text-sm/6 font-medium text-zinc-900 dark:text-zinc-200 [&_svg]:pointer-events-none'
             >
-              Log in <ArrowRight className='h-4 w-4' />
+              Log in <ArrowRight className='size-4' />
             </a>
           </div>
         </nav>
@@ -138,7 +138,7 @@ doloremque laudantium, totam rem aperiam, eaque ipsa quae.`}
                 href='#'
                 className='inline-flex items-center gap-1 text-sm/6 font-semibold text-zinc-900 dark:text-zinc-200'
               >
-                Watch the film <ArrowRight className='h-4 w-4' />
+                Watch the film <ArrowRight className='size-4' />
               </motion.a>
             </div>
           </div>

@@ -61,7 +61,7 @@ export function TextEffectTrail() {
     <div className='flex items-center justify-center bg-zinc-950 px-6 py-24 sm:py-32 lg:px-8'>
       <div className='relative flex h-[66px] w-[400px] rounded-full bg-[#232323] px-[28px]'>
         <div className='flex flex-1 flex-row items-center gap-5'>
-          <PlusIcon className='h-4 w-4 text-white' />
+          <PlusIcon className='size-4 text-white' />
           <div className='h-[16px] w-[1px] bg-[#373739]' />
           <input
             type='text'

@@ -43,7 +43,7 @@ export function TextMorphDropdown() {
             >
               <span className='text-[#5d5d5d]'>{label}</span>
               <TextMorph className='lowercase'>{selectedValue}</TextMorph>
-              <ChevronDown className='h-4 w-4 text-[#b4b4b4]' />
+              <ChevronDown className='size-4 text-[#b4b4b4]' />
             </motion.div>
           </motion.button>
         </DropdownMenuTrigger>

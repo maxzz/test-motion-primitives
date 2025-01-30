@@ -76,7 +76,7 @@ export function Feature1() {
                     <h3 className='text-left text-lg text-zinc-950 dark:text-zinc-50'>
                       {item.title}
                     </h3>
-                    <ChevronUp className='h-4 w-4 text-zinc-950 transition-transform duration-200 group-data-[expanded]:-rotate-180 dark:text-zinc-50' />
+                    <ChevronUp className='size-4 text-zinc-950 transition-transform duration-200 group-data-[expanded]:-rotate-180 dark:text-zinc-50' />
                   </AccordionTrigger>
                   <AccordionContent>
                     <p className='pb-6 text-left text-zinc-500 dark:text-zinc-400 lg:pb-8'>

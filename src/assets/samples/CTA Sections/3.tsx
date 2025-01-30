@@ -34,7 +34,7 @@ export function Cta3() {
                         Join now
                     </a>
                     <a href='#' className='inline-flex items-center gap-1 rounded-md bg-transparent px-2.5 py-1.5 text-sm text-zinc-900 transition-colors duration-300 hover:bg-zinc-200 dark:text-zinc-50 dark:hover:bg-zinc-900'>
-                        Learn more <ArrowRightIcon className='h-4 w-4' />
+                        Learn more <ArrowRightIcon className='size-4' />
                     </a>
                 </div>
 

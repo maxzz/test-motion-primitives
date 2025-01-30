@@ -58,7 +58,7 @@ export function Team2() {
               </div>
             </div>
             <div>
-              <ArrowRightIcon className='h-4 w-4 text-zinc-900 dark:text-white' />
+              <ArrowRightIcon className='size-4 text-zinc-900 dark:text-white' />
             </div>
           </Link>
         ))}

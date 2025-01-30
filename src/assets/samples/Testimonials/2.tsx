@@ -53,7 +53,7 @@ function InfiniteSliderRow({ reverse }: { reverse?: boolean }) {
         {randomCards.map((card, idx) => (
           <div className='max-w-64 rounded bg-zinc-100 p-4 dark:bg-zinc-900' key={idx}>
             <div className='flex items-center gap-2'>
-              <div className='h-4 w-4 rounded-full bg-gradient-to-br from-blue-200 to-purple-400' />
+              <div className='size-4 rounded-full bg-gradient-to-br from-blue-200 to-purple-400' />
               <span className='text-sm text-zinc-950 dark:text-zinc-50'>
                 {card.name}
               </span>

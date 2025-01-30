@@ -74,7 +74,7 @@ export function Hero1() {
               href='#'
               className='inline-flex items-center gap-1 text-sm/6 font-medium text-zinc-900 dark:text-zinc-200 [&_svg]:pointer-events-none'
             >
-              Log in <ArrowRight className='h-4 w-4' />
+              Log in <ArrowRight className='size-4' />
             </a>
           </div>
         </nav>
@@ -100,7 +100,7 @@ export function Hero1() {
                 className='inline-flex items-center gap-1 font-semibold text-zinc-600 dark:text-zinc-400'
               >
                 <span className='absolute inset-0' aria-hidden='true'></span>
-                Learn more <ArrowRight className='h-4 w-4' />
+                Learn more <ArrowRight className='size-4' />
               </a>
             </motion.div>
           </div>
@@ -155,7 +155,7 @@ Leverage our intuitive tools and thoughtfully crafted components.`}
                   ease: 'easeOut',
                 }}
               >
-                Watch the film <ArrowRight className='h-4 w-4' />
+                Watch the film <ArrowRight className='size-4' />
               </motion.a>
             </div>
           </div>

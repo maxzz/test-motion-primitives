@@ -15,13 +15,13 @@ export function Footer3() {
             href='#'
             className='fill-zinc-500 hover:fill-zinc-900 dark:fill-zinc-400 dark:hover:fill-zinc-100'
           >
-            <GitHubIcon className='h-4 w-4' />
+            <GitHubIcon className='size-4' />
           </a>
           <a
             href='#'
             className='fill-zinc-500 hover:fill-zinc-900 dark:fill-zinc-400 dark:hover:fill-zinc-100'
           >
-            <XIcon className='h-4 w-4' />
+            <XIcon className='size-4' />
           </a>
         </div>
       </div>
