@@ -8,7 +8,7 @@ SyntaxHighlighter.registerLanguage('tsx', tsx);
 
 export function CodeHighlighter({ code }: { code: string | undefined; }) {
     return (
-        <SyntaxHighlighter className="w-full h-full" language="javascript" style={vscDarkPlus}>
+        <SyntaxHighlighter className="!m-0 w-full h-full" language="javascript" style={vscDarkPlus}>
             {code || ''}
         </SyntaxHighlighter>
     );

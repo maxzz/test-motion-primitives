@@ -15,7 +15,7 @@ export function SourceCodeArea({ uuid, item }: { uuid: number | undefined; item:
                 </Button>
 
                 <ScrollArea className="w-full h-full" fullHeight>
-                    <div className="w-full h-full text-xs whitespace-pre-wrap">
+                    <div className="w-full h-full text-xs 1whitespace-pre-wrap">
                         <CodeHighlighter code={item?.fileCnt} />
                     </div>
                 </ScrollArea>
