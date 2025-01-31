@@ -12,10 +12,10 @@ export function RightArea(props: ComponentPropsWithRef<"div">) {
     const isDrawerOpen = useSnapshot(editor).isDrawerOpen;
     return (
         <div {...props}>
-            <DemoSourceSwitcher className="px-3" />
+            <DemoSourceSwitcher className="px-3" item={item} />
 
-            {!isDrawerOpen && <DemoScrollArea uuid={uuid} item={item} />}
-            {isDrawerOpen && <SourceCodeArea uuid={uuid} item={item} />}
+            {!isDrawerOpen && <DemoScrollArea item={item} uuid={uuid} />}
+            {isDrawerOpen && <SourceCodeArea item={item} uuid={uuid} />}
         </div>
     );
 }
