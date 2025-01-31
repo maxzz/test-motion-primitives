@@ -1,6 +1,6 @@
 'use client';
-import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { AppleMusic, A24, Pixar, Prada, Salomon, OpenAI, Sony, Strava } from '@/components/motion-ui-demo-icons/2';
 
 export function LogoCloud1() {
@@ -10,11 +10,13 @@ export function LogoCloud1() {
         () => {
             const interval = setInterval(
                 () => {
-                    setCurrentLogos((prevLogos) => {
-                        const currentIndex = LOGOS.indexOf(prevLogos[0]);
-                        const nextStartIndex = (currentIndex + LOGO_COUNT) % LOGOS.length;
-                        return LOGOS.slice(nextStartIndex, nextStartIndex + LOGO_COUNT);
-                    });
+                    setCurrentLogos(
+                        (prevLogos) => {
+                            const currentIndex = LOGOS.indexOf(prevLogos[0]);
+                            const nextStartIndex = (currentIndex + LOGO_COUNT) % LOGOS.length;
+                            return LOGOS.slice(nextStartIndex, nextStartIndex + LOGO_COUNT);
+                        }
+                    );
                 }, 4000
             );
             return () => clearInterval(interval);
