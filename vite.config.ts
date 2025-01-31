@@ -3,8 +3,17 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 function manualChunks(id: string) { //https://rollupjs.org/configuration-options/#output-manualchunks
+    if (id.includes("react-dom")) {
+        return "vendor-dom";
+    }
     if (id.includes("all-samples-2")) {
         return "samples";
+    }
+    if (id.includes("motion/react")) {
+        return "motion";
+    }
+    if (id.includes("@radix-ui")) {
+        return "radix";
     }
 }
 
