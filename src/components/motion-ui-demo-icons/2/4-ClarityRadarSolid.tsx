@@ -1,4 +1,4 @@
-import React, { SVGProps } from 'react'
+import React, { SVGProps } from 'react' //https://github.com/ibelick/motion-primitives/blob/main/public/prada_logo.svg
 
 export function Prada(props: SVGProps<SVGSVGElement>) {
   return (
