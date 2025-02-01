@@ -4,7 +4,7 @@ import { type ExportItem } from "@/assets/generated/dev/all-samples-2";
 import { editor } from "../0-all/8-editor-state";
 import { classNames } from "@/utils";
 import { Button } from "@/ui/shadcn";
-import { CodeXml } from "lucide-react";
+import { CodeXml, Files, RotateCw } from "lucide-react";
 
 export function DemoSourceSwitcher({ item, className, ...rest }: { item: ExportItem | undefined; } & ComponentPropsWithRef<"div">) {
     const isDrawerOpen = useSnapshot(editor).isDrawerOpen;
@@ -32,7 +32,7 @@ export function DemoSourceSwitcher({ item, className, ...rest }: { item: ExportI
                     className={classNames("font-normal tracking-tighter")} variant="outline" size="xs"
                     onClick={() => editor.reload = editor.reload + 1}
                 >
-                    Reload
+                    <RotateCw className="pt-0.5 size-4" />
                 </Button>
 
                 <Button
@@ -40,7 +40,7 @@ export function DemoSourceSwitcher({ item, className, ...rest }: { item: ExportI
                     onClick={() => navigator.clipboard.writeText(item?.fileCnt || '')}
                     disabled={!item}
                 >
-                    Copy
+                    <Files className="pt-0.5 size-4" />
                 </Button>
             </div>
         </div>
