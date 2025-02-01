@@ -58,7 +58,8 @@ export function TextEffectTrail() {
                     <div className='h-4 w-px bg-[#373739]' />
 
                     <input
-                        className='w-full bg-transparent text-white outline-none border border-border/40 rounded-md'
+                        className='px-3 py-1.5 w-full bg-transparent text-white border border-border/40 outline-none rounded-md'
+                        placeholder='Type something and press Enter'
                         value={text}
                         onChange={(e) => setText(e.target.value)}
                         onKeyDown={handleKeyPress}
