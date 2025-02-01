@@ -18,6 +18,7 @@ function manualChunks(id: string) { //https://rollupjs.org/configuration-options
 }
 
 export default defineConfig({ // https://vite.dev/config/
+    base: '',
     plugins: [
         react(),
     ],
