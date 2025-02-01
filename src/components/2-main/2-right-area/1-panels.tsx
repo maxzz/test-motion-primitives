@@ -9,13 +9,13 @@ import { DemoSourceSwitcher } from "./4-demo-code-switcher";
 export function RightArea(props: ComponentPropsWithRef<"div">) {
     const uuid = useSnapshot(editor).uuid;
     const item = findExportItem(uuid);
-    const isDrawerOpen = useSnapshot(editor).isDrawerOpen;
+    const showCode = useSnapshot(editor).showCode;
     return (
         <div {...props}>
             <DemoSourceSwitcher className="px-3" item={item} />
 
-            {!isDrawerOpen && <DemoScrollArea item={item} uuid={uuid} />}
-            {isDrawerOpen && <SourceCodeArea item={item} uuid={uuid} />}
+            {!showCode && <DemoScrollArea item={item} uuid={uuid} />}
+            {showCode && <SourceCodeArea item={item} uuid={uuid} />}
         </div>
     );
 }
