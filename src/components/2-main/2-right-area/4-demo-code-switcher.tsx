@@ -15,33 +15,37 @@ export function DemoSourceSwitcher({ item, className, ...rest }: { item: ExportI
                     className={classNames("px-0 font-normal tracking-tighter", !showCode ? "underline" : "hover:no-underline")} variant="link" size="xs"
                     onClick={() => editor.showCode = false}
                 >
-                    Demo
+                    Preview
                 </Button>
 
                 <Button
                     className={classNames("px-0 font-normal tracking-tighter", showCode ? "underline" : "hover:no-underline")} variant="link" size="xs"
                     onClick={() => editor.showCode = true}
                 >
-                    {/* <CodeXml className="pt-0.5 size-4" /> */}
+                    {/* <CodeXml className="size-4 stroke-[1.5]" /> */}
                     Code
                 </Button>
             </div>
 
             <div className={classNames("flex items-center gap-1", className)} {...rest}>
-                <Button
-                    className={classNames("font-normal tracking-tighter")} variant="outline" size="xs"
-                    onClick={() => editor.reload = editor.reload + 1}
-                >
-                    <RotateCw className="pt-0.5 size-4" />
-                </Button>
+                {showCode ?
+                    <Button
+                        className={classNames("font-normal tracking-tighter")} variant="outline" size="xs" title="Copy to clipboard"
+                        onClick={() => navigator.clipboard.writeText(item?.fileCnt || '')}
+                        disabled={!item}
+                    >
+                        <Files className="size-4 stroke-[1.5]" />
+                    </Button>
+                    :
 
-                <Button
-                    className={classNames("font-normal tracking-tighter")} variant="outline" size="xs"
-                    onClick={() => navigator.clipboard.writeText(item?.fileCnt || '')}
-                    disabled={!item}
-                >
-                    <Files className="pt-0.5 size-4" />
-                </Button>
+                    <Button
+                        className={classNames("font-normal tracking-tighter")} variant="outline" size="xs" title="Reload"
+                        onClick={() => editor.reload = editor.reload + 1}
+                    >
+                        <RotateCw className="size-4 stroke-[1.5]" />
+                    </Button>
+                }
+
             </div>
         </div>
     );
