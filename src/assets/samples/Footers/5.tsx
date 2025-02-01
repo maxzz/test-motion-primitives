@@ -43,7 +43,7 @@ export function Footer5() {
                         </div>
 
                         <p className='text-sm text-white'>
-                            � {new Date().getFullYear()} Motion Primitives, Inc. All rights reserved.
+                            © {new Date().getFullYear()} Motion Primitives, Inc. All rights reserved.
                         </p>
                     </div>
                     

@@ -12,14 +12,14 @@ export function DemoSourceSwitcher({ item, className, ...rest }: { item: ExportI
         <div className="py-1 flex items-center justify-between">
             <div className={classNames("flex items-center gap-1", className)} {...rest}>
                 <Button
-                    className={classNames("px-0", buttonClass, !showCode ? "underline" : "hover:no-underline")} variant="link" size="xs"
+                    className={classNames("px-0", buttonClasses, !showCode ? "underline" : "hover:no-underline")} variant="link" size="xs"
                     onClick={() => editor.showCode = false}
                 >
                     Preview
                 </Button>
 
                 <Button
-                    className={classNames("px-0", buttonClass, showCode ? "underline" : "hover:no-underline")} variant="link" size="xs"
+                    className={classNames("px-0", buttonClasses, showCode ? "underline" : "hover:no-underline")} variant="link" size="xs"
                     onClick={() => editor.showCode = true}
                 >
                     {/* <CodeXml className="size-4 stroke-[1.5]" /> */}
@@ -30,7 +30,7 @@ export function DemoSourceSwitcher({ item, className, ...rest }: { item: ExportI
             <div className={classNames("flex items-center gap-1", className)} {...rest}>
                 {showCode ?
                     <Button
-                        className={buttonClass} variant="outline" size="xs" title="Copy to clipboard"
+                        className={buttonClasses} variant="outline" size="xs" title="Copy to clipboard"
                         onClick={() => navigator.clipboard.writeText(item?.fileCnt || '')}
                         disabled={!item}
                     >
@@ -39,7 +39,7 @@ export function DemoSourceSwitcher({ item, className, ...rest }: { item: ExportI
                     :
 
                     <Button
-                        className={buttonClass} variant="outline" size="xs" title="Reload"
+                        className={buttonClasses} variant="outline" size="xs" title="Reload"
                         onClick={() => editor.reload = editor.reload + 1}
                     >
                         <RotateCw className="size-4 stroke-[1.5]" />
@@ -51,4 +51,4 @@ export function DemoSourceSwitcher({ item, className, ...rest }: { item: ExportI
     );
 }
 
-const buttonClass = "font-normal tracking-tighter active:scale-[.97]";
+const buttonClasses = "font-normal tracking-tighter active:scale-[.97]";

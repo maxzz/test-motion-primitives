@@ -7,7 +7,7 @@ export function Footer4() {
         <footer>
             <div className='mx-auto flex max-w-7xl flex-col justify-center px-6 py-12 md:flex-row md:justify-between md:px-8'>
                 <p className='text-sm text-zinc-500'>
-                    � {new Date().getFullYear()} Motion Primitives, Inc. All rights reserved.
+                    © {new Date().getFullYear()} Motion Primitives, Inc. All rights reserved.
                 </p>
 
                 <div className='order-first mb-4 flex items-center gap-x-6 md:order-none md:mb-0'>
